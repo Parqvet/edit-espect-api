@@ -1,10 +1,12 @@
+const { urlencoded } = require('express');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const swaggerUi = require('swagger-ui-express');
+const multer = require('multer');
 
 const config = require('../../config');
 const logger = require('../logger');
+const storageMulter = require('../../helpers/multerImage');
 
 class ExpressServer {
 
@@ -26,13 +28,16 @@ class ExpressServer {
 
     // view engine setup
     _settings() {
-        this.app.set('views', path.join('src', 'views'));
+        this.app.set('views', path.join(__dirname, '../../views'));
         this.app.set('view engine', 'ejs');
     }
 
     _middlewares() {
         this.app.use(express.json());
         this.app.use(morgan('tiny'));
+        this.app.use(urlencoded({ extended: false }));
+        this.app.use(express.static(path.join(__dirname, '../../public')));
+        this.app.use(multer({ storage: storageMulter }).single('image'));
     }
 
     _routes() {

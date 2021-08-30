@@ -7,6 +7,10 @@
     <title>Editorial Epectacular</title>
 </head>
 <body>
-    <h1>testing</h1>
+    
+    <% fanzines.forEach(function(fanzine) { %>
+        <img src="<%= fanzine.path %>" alt="">
+    <% }) %> 
+
 </body>
 </html>
