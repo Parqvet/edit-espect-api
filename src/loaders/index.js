@@ -13,7 +13,7 @@ module.exports = async () => {
 
     server.start();
     logger.info(`#######################################
-      Server listening on port ${config.port})
+      Server listening on port ${config.port}
       #######################################
     `);
 }
