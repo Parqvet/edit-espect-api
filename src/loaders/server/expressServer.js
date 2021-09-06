@@ -1,7 +1,7 @@
-const { urlencoded } = require('express');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const { urlencoded } = require('express');
 const multer = require('multer');
 
 const config = require('../../config');
@@ -13,7 +13,7 @@ class ExpressServer {
     constructor() {
         this.app = express();
         this.port = config.port;
-        this.basePathUser = `${config.api.prefix}`
+        this.basePath = `${config.api.prefix}`
 
         this._settings();
 
@@ -46,7 +46,7 @@ class ExpressServer {
             res.status(200).end();
         });
 
-        this.app.use(this.basePathUser, require('../../routes/index'));
+        this.app.use(require('../../routes/index'));
     }
 
     _notFound() {

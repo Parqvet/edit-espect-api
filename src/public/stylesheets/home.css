@@ -1,0 +1,27 @@
+.navbar-home {
+    border: 1px solid black;
+}
+
+.box-home {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 1px solid red;
+}
+
+.box-fanz {
+    width: 400px;
+    height: 300px;
+    margin-bottom: 150px;
+    border: 1px solid blue;
+}
+
+.img-fanz {
+    height: 100%;
+}
+
+.fanz-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}

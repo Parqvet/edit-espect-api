@@ -5,12 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editorial Epectacular</title>
+    <%- include("partials/head") %>
+    <link rel="stylesheet" href="/stylesheets/home.css">
 </head>
 <body>
+    <!-- NAVBAR -->
+    <div class="container mt-3 navbar-home">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Propina</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container-fluid text-center mt-3 mb-5">
+        <h4>⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧  ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧</h4>
+        <h1>Editorial Epectacular</h1>
+        <p>¡Enhorabuena! Fanzines Epetaculares<p>
+        <p>Usted puede descargar, reenviar, imprimir, fotocopiar, regalar o cualquier acción que expanda, cualquiera de estos fanzines.</p>
+    </div>
     
-    <% fanzines.forEach(function(fanzine) { %>
-        <img src="<%= fanzine.path %>" alt="">
-    <% }) %> 
+    <div class="container p-4 box-home">
+            
+        <% fanzines.forEach(function(fanzine) { %>
+            <div class="box-fanz">
+                <img src="<%= fanzine.imageURL %>" alt="" class="card-img-top img-fanz">
+                <p class="mt-2 fanz-title"><%= fanzine.title %></p>
+            </div>
+        <% }) %>
+
+    </div> 
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 const FanzineRepository = require('../repositories/fanzineRepository');
+
 const repository = new FanzineRepository();
 
 const findById = async (id) => {

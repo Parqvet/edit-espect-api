@@ -4,8 +4,9 @@ const { Schema, model } = mongoose;
 const fanzineSchema = new Schema({
     title: { type: String },
     description: { type: String },
+    imageURL: { type: String },
+    public_id: { String },
     filename: { type: String },
-    path: { type: String },
     originalname: { type: String },
     mimetype: { type: String },
     size: { type: Number },

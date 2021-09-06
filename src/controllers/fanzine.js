@@ -1,4 +1,7 @@
 const express = require('express');
+const fs = require('fs-extra');
+const cloudinary = require('../loaders/cloudinary');
+
 const Fanzine = require('../models/fanzine');
 
 const { findAll,
@@ -27,18 +30,23 @@ const createFanzine = (req, res, next) => {
 
 const storeFanzine = async (req, res, next) => {
     try {
-        const fanzine = new Fanzine();
-        fanzine.title = req.body.title;
-        fanzine.description = req.body.description;
-        fanzine.filename = req.file.filename;
-        fanzine.path = '/images/uploads/' + req.file.filename;
-        fanzine.originalname = req.file.originalname;
-        fanzine.mimetype = req.file.mimetype;
-        fanzine.size = req.file.size;
+        const { title, description } = req.body;
+        const imageCloud = await cloudinary.v2.uploader.upload(req.file.path);
+
+        const fanzine = new Fanzine({
+            title,
+            description,
+            imageURL: imageCloud.url,
+            public_id: imageCloud.public_id,
+            filename: req.file.filename,
+            originalName: req.file.originalName,
+            mimetype: req.file.mimetype,
+            size: req.file.size
+        })
 
         await save(fanzine);
-        
-        res.redirect('/editorialepectacular');
+        await fs.unlink(req.file.path);
+        res.redirect('/');
     } catch (error) {
         next(error);
     }
