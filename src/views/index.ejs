@@ -24,8 +24,8 @@
     <div class="container-fluid text-center mt-3 mb-5">
         <h4>⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧  ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧ ⌒ ⛦ ⌒ ⛧</h4>
         <h1>Editorial Epectacular</h1>
-        <p>¡Enhorabuena! Fanzines Epetaculares<p>
-        <p>Usted puede descargar, reenviar, imprimir, fotocopiar, regalar o cualquier acción que expanda, cualquiera de estos fanzines.</p>
+        <p class="home-title">¡Enhorabuena! Fanzines Epetaculares<p>
+        <p class="home-title">Usted puede descargar, reenviar, imprimir, fotocopiar, regalar o cualquier acción que expanda, cualquiera de estos fanzines.</p>
     </div>
     
     <div class="container p-4 box-home">
@@ -33,7 +33,7 @@
         <% fanzines.forEach(function(fanzine) { %>
             <div class="box-fanz">
                 <img src="<%= fanzine.imageURL %>" alt="" class="card-img-top img-fanz">
-                <p class="mt-2 fanz-title"><%= fanzine.title %></p>
+                <%- fanzine.description %>
             </div>
         <% }) %>
 

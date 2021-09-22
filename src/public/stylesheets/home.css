@@ -2,6 +2,11 @@
     border: 1px solid black;
 }
 
+.home-title {
+    font-size: 17px;
+    font-style: italic;
+}
+
 .box-home {
     width: 80%;
     display: flex;
@@ -13,12 +18,14 @@
 .box-fanz {
     width: 400px;
     height: 300px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
+    border-radius: 5px;
     border: 1px solid blue;
 }
 
 .img-fanz {
     height: 100%;
+    width: 100%;
 }
 
 .fanz-title {
