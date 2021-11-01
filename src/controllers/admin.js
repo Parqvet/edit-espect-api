@@ -20,6 +20,14 @@ const renderFanzines = async (req, res, next) => {
     }
 };
 
+const createFanzine = (req, res, next) => {
+    try {
+        res.render('upload');
+    } catch (error) {
+        next(error);
+    }
+};
+
 const storeFanzine = async (req, res, next) => {
     try {
         const { title, description } = req.body;
@@ -44,7 +52,13 @@ const storeFanzine = async (req, res, next) => {
     }
 }
 
+const renderLogin = (req, res) => {
+    res.render('login');
+}
+
 module.exports = {
     renderFanzines,
-    storeFanzine
+    createFanzine,
+    storeFanzine,
+    renderLogin
 }

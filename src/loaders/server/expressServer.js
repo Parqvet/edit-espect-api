@@ -49,7 +49,7 @@ class ExpressServer {
         });
 
         this.app.use(require('../../routes/index'));
-        this.app.use(require('../../routes/admin'));
+        this.app.use('/admin', require('../../routes/admin'));
     }
 
     _notFound() {

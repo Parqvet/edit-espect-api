@@ -73,3 +73,19 @@ figure:hover .txt-d {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.login-form {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form .email {
+    color: seashell;
+}
+
+.login-form .pass {
+    color: seashell;
+}
