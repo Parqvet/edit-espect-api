@@ -7,9 +7,6 @@ const { renderHome,
 
 router.get('/', renderHome);
 
-router.get('/upload', createFanzine);
-router.post('/upload', storeFanzine);
-
 router.put('/fanzine/:id');
 
 router.delete('/fanzine/delete/:id');

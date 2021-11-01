@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const { urlencoded } = require('express');
+const methodOverride = require('method-override');
 const multer = require('multer');
 
 const config = require('../../config');
@@ -21,7 +22,7 @@ class ExpressServer {
 
         this._routes();
 
-        this._notFound();
+        // this._notFound();
         this._errorHandler();
 
     }
@@ -37,6 +38,7 @@ class ExpressServer {
         this.app.use(morgan('tiny'));
         this.app.use(urlencoded({ extended: false }));
         this.app.use(express.static(path.join(__dirname, '../../public')));
+        this.app.use(methodOverride('_method'));
         this.app.use(multer({ storage: storageMulter }).single('image'));
     }
 
@@ -47,6 +49,7 @@ class ExpressServer {
         });
 
         this.app.use(require('../../routes/index'));
+        this.app.use('/lasbebis', require('../../routes/admin'));
     }
 
     _notFound() {

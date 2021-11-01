@@ -15,7 +15,7 @@
     border: 1px solid red;
 }
 
-.box-fanz {
+.fanz-box {
     width: 400px;
     height: 300px;
     margin-bottom: 100px;
@@ -23,7 +23,7 @@
     border: 1px solid blue;
 }
 
-.img-fanz {
+.fanz-img {
     height: 100%;
     width: 100%;
 }
