@@ -11,13 +11,8 @@ body {
 }
 
 .home-title {
-    color: seashell;
-}
-
-.home-subtitle {
     font-size: 17px;
     font-style: italic;
-    color: seashell;
 }
 
 .box-home {
@@ -33,8 +28,6 @@ body {
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 100px;
     border-radius: 5px;
     border: 1px solid blue;
@@ -72,10 +65,8 @@ figure:hover .txt-d {
 .f-title {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     padding-left: 25px;
-    padding-right: 10px;
 }
 
 .fanz-title {
