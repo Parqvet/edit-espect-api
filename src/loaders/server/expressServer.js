@@ -16,7 +16,7 @@ class ExpressServer {
         this.port = config.port;
         this.basePath = `${config.api.prefix}`
 
-        this._settings();
+        //this._settings();
 
         this._middlewares();
 
@@ -28,18 +28,18 @@ class ExpressServer {
     }
 
     // view engine setup
-    _settings() {
+    /* _settings() {
         this.app.set('views', path.join(__dirname, '../../views'));
         this.app.set('view engine', 'ejs');
-    }
+    } */
 
     _middlewares() {
         this.app.use(express.json());
         this.app.use(morgan('tiny'));
         this.app.use(urlencoded({ extended: false }));
-        this.app.use(express.static(path.join(__dirname, '../../public')));
+        //this.app.use(express.static(path.join(__dirname, '../../public')));
         this.app.use(methodOverride('_method'));
-        this.app.use(multer({ storage: storageMulter }).single('image'));
+        //this.app.use(multer({ storage: storageMulter }).single('image'));
     }
 
     _routes() {
@@ -48,7 +48,7 @@ class ExpressServer {
             res.status(200).end();
         });
 
-        this.app.use(require('../../routes/index'));
+        this.app.use(this.basePath, require('../../routes/index'));
         this.app.use('/admin', require('../../routes/admin'));
     }
 

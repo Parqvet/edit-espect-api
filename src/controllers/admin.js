@@ -1,4 +1,5 @@
 const express = require('express');
+const Success = require('../helpers/succesHandler');
 const fs = require('fs-extra');
 const cloudinary = require('../loaders/cloudinary');
 
@@ -11,18 +12,10 @@ const { findAll,
         remove
     } = require('../services/fanzineService');
 
-const renderFanzines = async (req, res, next) => {
+const getAllFanzines = async (req, res, next) => {
     try {
         const fanzines = await findAll();
-        res.render('admin/fanzines', { fanzines });
-    } catch (error) {
-        next(error);
-    }
-};
-
-const createFanzine = (req, res, next) => {
-    try {
-        res.render('upload');
+        res.json(new Success(fanzines));
     } catch (error) {
         next(error);
     }
@@ -46,19 +39,13 @@ const storeFanzine = async (req, res, next) => {
 
         await save(fanzine);
         await fs.unlink(req.file.path);
-        res.redirect('/');
+        res.status(201).json(new Success(fanzine));
     } catch (error) {
         next(error);
     }
 }
 
-const renderLogin = (req, res) => {
-    res.render('login');
-}
-
 module.exports = {
-    renderFanzines,
-    createFanzine,
-    storeFanzine,
-    renderLogin
+    getAllFanzines,
+    storeFanzine
 }
