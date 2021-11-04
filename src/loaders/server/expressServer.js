@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const cors = require('cors');
 const { urlencoded } = require('express');
 const methodOverride = require('method-override');
 const multer = require('multer');
@@ -34,6 +35,7 @@ class ExpressServer {
     } */
 
     _middlewares() {
+        this.app.use(cors());
         this.app.use(express.json());
         this.app.use(morgan('tiny'));
         this.app.use(urlencoded({ extended: false }));
